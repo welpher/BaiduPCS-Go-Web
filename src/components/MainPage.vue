@@ -1,5 +1,11 @@
 <template>
   <div>
+    <el-dialog
+      :visible="!isLoged">
+      <input type="password" v-model="psw" placeholder="Password">
+      <el-button type="primary" size="mini" @click="logAndRun">log in</el-button>
+    </el-dialog>
+
     <div class="fileContainer">
       <el-button type="primary" size="mini" @click="back">Back</el-button>
       <div class="files" v-bind:key="file.fileName" v-for="file in files">
@@ -19,7 +25,7 @@
     <div class="actions">
       <input type="text" v-model="cmd">
       <button @click="run">Run</button>
-      <input type="password" v-model="psw">
+      <!-- <input type="password" v-model="psw"> -->
     </div>
     <loading v-if="isLoading"></loading>
   </div>
@@ -40,11 +46,15 @@ export default {
       psw: "",
       files: [],
       cmd: "",
-      isLoading: true
+      isLoading: false,
+      isLoged: false,
     };
   },
+  mounted(){
+
+  },
   created() {
-    this.fetch("ls");
+    // this.fetch("ls");
   },
   methods: {
     showFiles(data) {
@@ -66,6 +76,11 @@ export default {
           fileName
         };
       });
+    },
+
+    logAndRun(){
+      this.isLoged = true;
+      this.run();
     },
 
     run() {
@@ -104,6 +119,12 @@ export default {
             message: err.data.msg,
             type: "error"
           });
+          if(err.status === 403){
+            this.isLoged = false;
+          }
+          if(err.data.msg === '请使用 login -bduss=YOURBUDSS 来登录你的百度云盘'){
+            this.cmd = 'login -bduss=YOURBUDSS';
+          }
         })
     },
 

@@ -50,14 +50,15 @@ app.post("/", (req, res) => {
   }
 
   shell.exec(cmd, (code, stdout, stderr) => {
-    let result = { code };
+    let result = { code, method };
+
     if (code === 0) {
       result.data = stdout;
+      res.status(200).send(result);
     } else {
-      result.data = stderr;
+      result.msg = stderr;
+      res.status(400).send(result);
     }
-    result.method = method;
-    res.send(result);
   });
 });
 

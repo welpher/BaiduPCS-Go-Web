@@ -7,9 +7,7 @@ RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app
 WORKDIR /usr/src/app
 ADD . /usr/src/app
 RUN npm run build
-RUN rm -rf ./build
-RUN rm -rf ./test
-RUN rm -rf ./src
+RUN rm -rf ./build && rm -rf ./test && rm -rf ./src
 
 ENV PORT=80
 ENV CORS=0
