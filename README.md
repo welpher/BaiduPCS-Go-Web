@@ -34,7 +34,7 @@ http://localhost:3000
 
 ```
 docker build -t baidupcsui .
-docker run -d -p 80:3000 -v /downloads:/usr/src/app/download/ baidupcsui
+docker run -d -p 80:3000 -v /downloads:/root/Downloads baidupcsui
 ```
 
 ### 登录 非常重要
