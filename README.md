@@ -58,6 +58,8 @@ ls
 
 https://github.com/iikira/BaiduPCS-Go/releases
 
+记得运行 chmod u+x ./BaiduPCS-Go
+
 ### TODO
 
 增加错误提示信息 - 现在就算密码错误也不会显示信息
