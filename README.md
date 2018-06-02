@@ -59,14 +59,9 @@ ls
 
 ### 核心代码更新
 
-在这里下载 最新版本的`linux-amd64.zip`并解压到根目录
+在这里下载 最新版本的`linux-amd64.zip`(docker环境下)并解压到根目录
 
 https://github.com/iikira/BaiduPCS-Go/releases
 
-记得运行 chmod u+x ./BaiduPCS-Go
+记得运行 chmod u+x ./BaiduPCS-Go (如果不用docker)
 
-### TODO
-
-增加错误提示信息 - 现在就算密码错误也不会显示信息
-
-增加登录框
