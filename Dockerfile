@@ -1,8 +1,11 @@
 FROM node:8
 ADD package.json /tmp/package.json
 ADD package-lock.json /tmp/package-lock.json
-RUN cd /tmp && npm install
-RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app
+RUN cd /tmp && \
+  npm install && \
+  chmod u+x ./BaiduPCS-Go && \
+  mkdir -p /usr/src/app && \
+  cp -a /tmp/node_modules /usr/src/app
 
 WORKDIR /usr/src/app
 ADD . /usr/src/app
