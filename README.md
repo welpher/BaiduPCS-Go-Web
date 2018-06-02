@@ -20,21 +20,22 @@ const PASSWORD = 'YourPassword';
 
 使用web时候 需要把`YourPassword`放在密码框里面
 ```
+
 ### 安装
+
 ```
 npm install
 npm run build
 npm start
-
 http://localhost:3000
 ```
+
 ### Docker
 
 ```
 docker build -t baidupcsui .
 docker run -d -p 80:3000 -v /downloads:/usr/src/app/download/ baidupcsui
 ```
-
 
 ### 登录 非常重要
 

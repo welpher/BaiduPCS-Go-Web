@@ -47,12 +47,10 @@ export default {
       files: [],
       cmd: "",
       isLoading: false,
-      isLoged: false,
+      isLoged: false
     };
   },
-  mounted(){
-
-  },
+  mounted() {},
   created() {
     // this.fetch("ls");
   },
@@ -78,7 +76,7 @@ export default {
       });
     },
 
-    logAndRun(){
+    logAndRun() {
       this.isLoged = true;
       this.run();
     },
@@ -113,19 +111,21 @@ export default {
           }
           this.msg += data.data.data;
         })
-        .catch((err) => {
+        .catch(err => {
           this.isLoading = false;
           this.$message({
             message: err.data.msg,
             type: "error"
           });
-          if(err.status === 403){
+          if (err.status === 403) {
             this.isLoged = false;
           }
-          if(err.data.msg === '请使用 login -bduss=YOURBUDSS 来登录你的百度云盘'){
-            this.cmd = 'login -bduss=YOURBUDSS';
+          if (
+            err.data.msg === "请使用 login -bduss=YOURBUDSS 来登录你的百度云盘"
+          ) {
+            this.cmd = "login -bduss=YOURBUDSS";
           }
-        })
+        });
     },
 
     download(name) {
