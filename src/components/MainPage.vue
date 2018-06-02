@@ -98,9 +98,13 @@ export default {
           }
           this.msg += data.data.data;
         })
-        .catch(() => {
+        .catch((err) => {
           this.isLoading = false;
-        });
+          this.$message({
+            message: err.data.msg,
+            type: "error"
+          });
+        })
     },
 
     download(name) {

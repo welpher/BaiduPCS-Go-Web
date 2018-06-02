@@ -45,7 +45,7 @@ app.post("/", (req, res) => {
   const method = body.cmd.split(" ")[0];
 
   if (psw !== PASSWORD) {
-    res.send("invalid password");
+    res.status(403).send({msg: "invalid password"});
     return;
   }
 

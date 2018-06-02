@@ -19,12 +19,7 @@ const service = axios.create({
 service.interceptors.response.use(
   response => response,
   error => {
-    if (error.response) {
-      console.error(error.response);
-    } else {
-      console.error("Unknown error");
-    }
-    return Promise.reject(error);
+    return Promise.reject(error.response);
   }
 );
 
