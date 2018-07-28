@@ -36,7 +36,7 @@ import connect from "@/apis/connect";
 import loading from "@/widges/loading";
 
 export default {
-  name: "MainPage",
+  name: "HomePage",
   components: {
     loading
   },

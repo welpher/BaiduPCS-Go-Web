@@ -7,37 +7,31 @@ const bodyParser = require("body-parser");
 // shell
 const shell = require("shelljs");
 const path = require("path");
-const PASSWORD = "YourPassword"; // change your password here
-const port = 3000;
+const password = process.env.PASSWORD || "YourPassword"; // change your password here
+const port = process.env.PORT || 3001;
 
-app.use(express.static(`${__dirname}/dist`));
-app.engine(".html", require("ejs").renderFile);
+// app.use(express.static(`${__dirname}/dist`));
+// app.engine(".html", require("ejs").renderFile);
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-if (process.env.CORS !== 0) {
-  app.use("*", function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Content-Type,Content-Length, Authorization, Accept,X-Requested-With"
-    );
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    if (req.method === "OPTIONS") {
-      res.send(200);
-    } else {
-      next();
-    }
-  });
-}
+app.use("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type,Content-Length, Authorization, Accept,X-Requested-With"
+  );
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  if (req.method === "OPTIONS") {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 
 app.use("/", router);
-
-app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/dist/index.html`);
-});
 
 app.post("/", (req, res) => {
   const body = req.body;
@@ -46,7 +40,7 @@ app.post("/", (req, res) => {
   const psw = body.psw;
   const method = body.cmd.split(" ")[0];
 
-  if (psw !== PASSWORD) {
+  if (psw !== password) {
     res.status(403).send({
       msg: "invalid password"
     });

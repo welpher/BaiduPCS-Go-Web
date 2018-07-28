@@ -1,18 +1,22 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <HomePage/>
 </template>
 
 <script>
+import HomePage from './components/HomePage.vue'
+
+
 export default {
-  name: "App"
-};
+  name: 'app',
+  components: {
+    HomePage
+  }
+}
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

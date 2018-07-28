@@ -1,6 +1,6 @@
 import fetch from "@/utils/fetch";
 
-const API_URL = "/";
+const API_URL = "http://localhost:3001";
 
 export default {
   run(cmd, psw) {
@@ -13,7 +13,6 @@ export default {
         }
       })
       .then(data => {
-        console.log(data.data)
         if (data.data.data.includes('错误')) {
           return Promise.reject({
             data: {
