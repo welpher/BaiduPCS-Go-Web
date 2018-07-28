@@ -4,10 +4,9 @@
 </template>
 
 <script>
-import connect from "@/apis/connect";
 
 export default {
-  name: "MainPage",
+  name: "loadingWidge",
   data() {
     return {};
   }
