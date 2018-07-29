@@ -42,6 +42,7 @@ PASSWORD=asdasd npm start
 
 ``` bash
 login -bduss=YOURBUDSS
+教程 https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E-%E8%8E%B7%E5%8F%96%E7%99%BE%E5%BA%A6-BDUSS
 ```
 
 ls
