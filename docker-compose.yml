@@ -8,6 +8,8 @@ services:
         - PASSWORD=YourPassword
     ports:
       - "3001:3001"
+    volumes:
+      - /downloads:/root/Downloads
 
   frontend:
     build:
