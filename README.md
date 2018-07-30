@@ -52,9 +52,9 @@ ls
 
 点击文件就可以在后台下载
 
-文件下载完成后会在/downloads 找到， 如果使用docker
+文件下载完成后会在`/downloads` 找到， 如果使用docker
 
-如果不使用docker可能会在/用户名/Downloads
+如果不使用docker可能会在`/用户名/Downloads`
 
 
 ## 核心代码更新
