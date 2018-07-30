@@ -14,18 +14,18 @@
 
 配置你的登录密码 docker compose
 
-修改docker-compose.yml
+修改docker-compose.yml 里面的password 默认为`YourPassword`
 
-## 安装
+## 安装(docker compose)
 
-Docker compose
+安装教程 https://docs.docker.com/compose/install/
 
 ```bash
 sudo docker-compose up -d
 ```
 
-## npm
-
+## 安装(npm)
+安装包下载 https://nodejs.org/en/download/
 ``` bash
 cd frontend
 npm i
@@ -33,7 +33,7 @@ npm start
 
 cd ../backend
 npm i
-PASSWORD=asdasd npm start
+PASSWORD=YourPassword npm start
 ```
 
 ## 登录 非常重要
