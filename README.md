@@ -33,7 +33,7 @@ npm start
 
 cd ../backend
 npm i
-PASSWORD=YourPassword npm start
+PASSWORD=YourPassword npm run serve
 ```
 
 ## 登录 非常重要
