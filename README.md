@@ -29,7 +29,7 @@ sudo docker-compose up -d
 ``` bash
 cd frontend
 npm i
-npm start
+npm start &
 
 cd ../backend
 npm i
