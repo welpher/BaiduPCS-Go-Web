@@ -1,5 +1,10 @@
 version: '3.3'
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
   backend:
     build:
       context: ./backend
@@ -7,13 +12,6 @@ services:
       args:
         - PASSWORD=YourPassword
     ports:
-      - "3001:3001"
+      - "8085:3001"
     volumes:
       - /downloads:/root/Downloads
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"

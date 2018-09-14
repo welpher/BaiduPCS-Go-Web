@@ -32,8 +32,8 @@ app.use("*", function (req, res, next) {
 });
 
 app.use("/", router);
-
-app.post("/", (req, res) => {
+app.use('/', express.static('dist'))
+app.post("/command", (req, res) => {
   const body = req.body;
   const prefix = "./BaiduPCS-Go ";
   const cmd = prefix + body.cmd;
