@@ -1,13 +1,14 @@
 version: '3.3'
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
 
   backend:
+    container_name: baidupcs-go-web
     build:
-      context: ./backend
+      context: ./
       dockerfile: Dockerfile
       args:
         - PASSWORD=YourPassword
