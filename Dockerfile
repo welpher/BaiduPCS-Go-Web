@@ -1,18 +1,19 @@
 FROM node:8-alpine as build-stage
-RUN cd ./frontend
+WORKDIR /webbuild
+COPY ./frontend/package*.json ./
 RUN npm install
+COPY ./frontend/* .
 RUN npm run build
-
-RUN cd ../backend
 
 FROM node:8-alpine
 RUN mkdir app
 WORKDIR /app
-ADD package.json /app
+COPY --from=0 /webbuild/dist .
+ADD ./backend/package.json /app
 
 RUN npm i
 
-ADD . /app
+ADD ./backend/* /app
 RUN chmod u+x ./BaiduPCS-Go
 
 CMD [ "npm", "start" ]
