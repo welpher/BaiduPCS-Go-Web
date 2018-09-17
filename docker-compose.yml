@@ -15,4 +15,4 @@ services:
     ports:
       - "8085:3001"
     volumes:
-      - /downloads:/root/Downloads
+      - /root/Downloads:/downloads
