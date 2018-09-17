@@ -1,15 +1,13 @@
 FROM node:8-alpine as build-stage
-WORKDIR /frontend/app
-COPY package*.json ./
+RUN cd ./frontend
 RUN npm install
-COPY . .
 RUN npm run build
 
 RUN cd ../backend
 
 FROM node:8-alpine
 RUN mkdir app
-WORKDIR /backend/app
+WORKDIR /app
 ADD package.json /app
 
 RUN npm i
