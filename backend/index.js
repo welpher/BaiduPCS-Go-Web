@@ -31,7 +31,7 @@ app.use("*", function (req, res, next) {
   }
 });
 
-// app.use("/", router);
+app.use("/", router);
 app.use('/', express.static('dist'))
 app.post("/command", (req, res) => {
   const body = req.body;
